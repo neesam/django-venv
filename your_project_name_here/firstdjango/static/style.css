@@ -1,0 +1,328 @@
+.rym {
+    text-shadow: 9px 5px black;
+    animation-name: moveyears;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    position: relative;
+    bottom: 200px;
+}
+
+.para {
+  animation: none;
+}
+
+.rym h2 {
+    font-size: 70px
+}
+
+.rym h3 {
+    font-size: 70px
+}
+
+@keyframes moveyears {
+    from {
+      color: white;
+      text-shadow: -1px -1px 1px #aaa,
+      0px 4px 1px rgba(0,0,0,0.5),
+      4px 4px 5px rgba(0,0,0,0.7),
+      0px 0px 7px rgba(0,0,0,0.4);
+  
+    }
+    to {
+      color: #ada2e6;
+      text-shadow: 0 1px #808d93,
+                           -1px 0 #cdd2d5,
+                           -1px 2px #808d93,
+                           -2px 1px #cdd2d5,
+                           -2px 3px #808d93,
+                           -3px 2px #cdd2d5,
+                           -3px 4px #808d93,
+                           -4px 3px #cdd2d5,
+                           -4px 5px #808d93,
+                           -5px 4px #cdd2d5,
+                           -5px 6px #808d93,
+                           -6px 5px #cdd2d5,
+                           -6px 7px #808d93,
+                           -7px 6px #cdd2d5,
+                           -7px 8px #808d93,
+                           -8px 7px #cdd2d5;
+  transform: translate(1px, 1%);
+    }
+  }
+
+#left-bar a:hover {
+  color: #aaa;
+  text-shadow: 4px 4px 4px #ada2e6;
+}
+
+
+
+#player {
+  position: relative;
+  height: 100%;
+  z-index: 3;
+  grid-column: 5;
+  border: 1px solid red
+}
+
+#player-track {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  left: 15px;
+  padding: 13px 22px 10px 184px;
+  background-color: #fff7f7;
+  border-radius: 15px 15px 0 0;
+  transition: 0.3s ease top;
+  z-index: 1;
+}
+
+#player-track.active {
+  top: -92px;
+}
+
+#album-name {
+  color: #54576f;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+#track-name {
+  color: #acaebd;
+  font-size: 13px;
+  margin: 2px 0 13px 0;
+}
+
+#track-time {
+  height: 12px;
+  margin-bottom: 3px;
+  overflow: hidden;
+}
+
+#current-time {
+  float: left;
+}
+
+#track-length {
+  float: right;
+}
+
+#current-time,
+#track-length {
+  color: transparent;
+  font-size: 11px;
+  background-color: #ffe8ee;
+  border-radius: 10px;
+  transition: 0.3s ease all;
+}
+
+#track-time.active #current-time,
+#track-time.active #track-length {
+  color: #f86d92;
+  background-color: transparent;
+}
+
+#s-area,
+#seek-bar {
+  position: relative;
+  height: 4px;
+  border-radius: 4px;
+}
+
+#s-area {
+  background-color: #ffe8ee;
+  cursor: pointer;
+}
+
+#ins-time {
+  position: absolute;
+  top: -29px;
+  color: #fff;
+  font-size: 12px;
+  white-space: pre;
+  padding: 5px 6px;
+  border-radius: 4px;
+  display: none;
+}
+
+#s-hover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.2;
+  z-index: 2;
+}
+
+#ins-time,
+#s-hover {
+  background-color: #3b3d50;
+}
+
+#seek-bar {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  background-color: #fd6d94;
+  transition: 0.2s ease width;
+  z-index: 1;
+}
+
+#player-content {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 30px 80px #656565;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+#album-art {
+  position: absolute;
+  top: -40px;
+  width: 115px;
+  height: 115px;
+  margin-left: 40px;
+  transform: rotateZ(0);
+  transition: 0.3s ease all;
+  box-shadow: 0 0 0 10px #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#album-art.active {
+  top: -60px;
+  box-shadow: 0 0 0 4px #fff7f7, 0 30px 50px -15px #afb7c1;
+}
+
+#album-art:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: -10px auto 0 auto;
+  background-color: #d6dee7;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px #fff;
+  z-index: 2;
+}
+
+#album-art img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -1;
+}
+
+#album-art img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+#album-art.active img.active {
+  z-index: 1;
+  animation: rotateAlbumArt 3s linear 0s infinite forwards;
+}
+
+@keyframes rotateAlbumArt {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+#buffer-box {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 13px;
+  color: #1f1f1f;
+  font-size: 13px;
+  font-family: Helvetica;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1;
+  padding: 6px;
+  margin: -12px auto 0 auto;
+  background-color: rgba(255, 255, 255, 0.19);
+  opacity: 0;
+  z-index: 2;
+}
+
+#album-art img,
+#buffer-box {
+  transition: 0.1s linear all;
+}
+
+#album-art.buffering img {
+  opacity: 0.25;
+}
+
+#album-art.buffering img.active {
+  opacity: 0.8;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+#album-art.buffering #buffer-box {
+  opacity: 1;
+}
+
+#player-controls {
+  width: 250px;
+  height: 100%;
+  margin: 0 5px 0 141px;
+  float: right;
+  overflow: hidden;
+}
+
+.control {
+  width: 33.333%;
+  float: left;
+  padding: 12px 0;
+}
+
+.button {
+  width: 26px;
+  height: 26px;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button i {
+  display: block;
+  color: #d6dee7;
+  font-size: 26px;
+  text-align: center;
+  line-height: 1;
+}
+
+.button,
+.button i {
+  transition: 0.2s ease all;
+}
+
+.button:hover {
+  background-color: #d6d6de;
+}
+
+.button:hover i {
+  color: #fff;
+}
