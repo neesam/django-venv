@@ -57,3 +57,15 @@ class GreatScene(models.Model):
 
 class Jazz(models.Model):
     album = models.CharField(max_length=255)
+
+class Log(models.Model):
+    album = models.CharField(max_length=500)
+    artist = models.CharField(max_length=500)
+    image = models.CharField(max_length=500)
+    rating = models.CharField(max_length=500)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class Movies(models.Model):
+    title = models.CharField(max_length=500)
+    image = models.CharField(max_length=500)

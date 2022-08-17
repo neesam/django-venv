@@ -13,6 +13,10 @@ urlpatterns = [
     path('top-random', views.randomPersonTop),
     path('great-scene', views.greatScene),
     path('jazz', views.jazz),
-    path('login', views.login)
+    path('login', views.login),
+    path('listening-log', views.listeningLog),
+    path('add-listening-log', views.addListeningLog),
+    path('add-log', views.addToLog),
+    path('ryan-rym', views.ryan)
 ]
 

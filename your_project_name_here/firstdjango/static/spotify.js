@@ -1,0 +1,1 @@
+const AUTH_URL = 'https://accounts.spotify.com//authorize?client_id=f6280cc0becd438d9e71512e4752a690&response_type=code&redirect_uri=http://127:0.0.1:8000&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state';

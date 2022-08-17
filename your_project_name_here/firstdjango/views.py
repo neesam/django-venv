@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 import random
 from django.http import JsonResponse
-from firstdjango.models import Users, Brookfield, Sundial, Albums, Tracks, RYM, RandAlbum, Artist, Ryan, RandomArtist, RandPerson, GreatScene, Jazz
+from firstdjango.models import Users, Brookfield, Sundial, Albums, Tracks, RYM, RandAlbum, Artist, Ryan, RandomArtist, RandPerson, GreatScene, Jazz, Log
 
 def index(request):
     context = {
@@ -97,3 +97,21 @@ def jazz(request):
 def login(request):
     
     return render(request, 'login.html')
+
+def listeningLog(request):
+
+    context = {
+        'albums': Log.objects.all().order_by('-created_at')
+    }
+
+    return render(request, 'listening_log.html', context)
+
+def addListeningLog(request):
+    
+    return render(request, 'add_listening_log.html')
+
+def addToLog(request):
+
+    Log.objects.create(album=request.POST['album'], artist=request.POST['artist'], image=request.POST['image'], rating=request.POST['rating'])
+
+    return redirect('/listening-log')
