@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 import random
 from django.http import JsonResponse
-from firstdjango.models import Users, Brookfield, Sundial, Albums, Tracks, RYM, RandAlbum, Artist, Ryan, RandomArtist, RandPerson, GreatScene, Jazz, Log
+from firstdjango.models import Users, Brookfield, Sundial, Albums, Tracks, RYM, RandAlbum, Artist, Ryan, RandomArtist, RandPerson, GreatScene, Jazz, Log, Vinyls, SMS, MLEP, UTSTMS, MELA, RYMRecs, RYMChallenge, Criterion, melodicEng
 
 def index(request):
     context = {
@@ -115,3 +115,75 @@ def addToLog(request):
     Log.objects.create(album=request.POST['album'], artist=request.POST['artist'], image=request.POST['image'], rating=request.POST['rating'])
 
     return redirect('/listening-log')
+
+def charts(request):
+
+    return render(request, 'charts.html')
+
+def sms(request):
+
+    context = {
+        'album': SMS.objects.all().order_by('?').first()
+    }
+
+    return render(request, 'SMS.html', context)
+
+def mlep(request):
+
+    context = {
+        'album': MLEP.objects.all().order_by('?').first()
+    }
+
+    return render(request, 'MLEP.html', context)
+
+def utstms(request):
+    
+    context = {
+        'album': UTSTMS.objects.all().order_by('?').first()
+    }
+
+    return render(request, 'UTSTMS.html', context)
+
+def mela(request):
+    
+    context = {
+        'album': MELA.objects.all().order_by('?').first()
+    }
+
+    return render(request, 'MELA.html', context)
+
+def rymrecs(request):
+    
+    context = {
+        'album': RYMRecs.objects.all().order_by('?').first()
+    }
+
+    return render(request, 'RYMRecs.html', context)
+
+def rymchallenge(request):
+    
+    context = {
+        'album': RYMChallenge.objects.all().order_by('?').first()
+    }
+
+    return render(request, 'RYMChallenge.html', context)
+
+def recs(request):
+    
+    return render(request, 'recs.html')
+
+def criterion(request):
+    
+        context = {
+            'title': Criterion.objects.all().order_by('?').first()
+        }
+    
+        return render(request, 'criterion.html', context)
+
+def melEng(request):
+    
+    context = {
+        'album': melodicEng.objects.all().order_by('?').first()
+    }
+
+    return render(request, 'melodicEng.html', context)

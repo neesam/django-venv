@@ -69,3 +69,37 @@ class Log(models.Model):
 class Movies(models.Model):
     title = models.CharField(max_length=500)
     image = models.CharField(max_length=500)
+
+class Vinyls(models.Model):
+    title = models.CharField(max_length=550)
+
+class SMS(models.Model):
+    title = models.CharField(max_length=500)
+    artist = models.CharField(max_length=500)
+
+class MLEP(models.Model):
+    title = models.CharField(max_length=500)
+    artist = models.CharField(max_length=500)
+
+class UTSTMS(models.Model):
+    title = models.CharField(max_length=500)
+    artist = models.CharField(max_length=500)
+
+class MELA(models.Model):
+    title = models.CharField(max_length=500)
+    artist = models.CharField(max_length=500)
+
+class RYMRecs(models.Model):
+    title = models.CharField(max_length=500)
+    artist = models.CharField(max_length=500)
+
+class RYMChallenge(models.Model):
+    title = models.CharField(max_length=500)
+    artist = models.CharField(max_length=500)
+
+class Criterion(models.Model):
+    title = models.CharField(max_length=500)
+
+class melodicEng(models.Model):
+    title = models.CharField(max_length=500, default="you a bitch")
+    artist = models.CharField(max_length=500, default="you a bitch")
